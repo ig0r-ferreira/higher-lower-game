@@ -1,4 +1,18 @@
-DATA = [
+from dataclasses import dataclass
+from typing import Any
+
+
+@dataclass
+class Profile:
+    """Class representing profile data."""
+
+    name: str
+    follower_count: int
+    description: str
+    country: str
+
+
+PROFILE_DATA: list[dict[str, Any]] = [
     {
         'name': 'Instagram',
         'follower_count': 346,

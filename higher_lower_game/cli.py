@@ -1,5 +1,3 @@
-from typing import Any
-
 from rich.align import Align
 from rich.console import Console, RenderableType
 from rich.layout import Layout
@@ -8,12 +6,13 @@ from rich.prompt import Prompt
 from rich.text import Text
 
 from higher_lower_game import art
+from higher_lower_game.game_data import Profile
 
 
-def _format_profile_display(profile: dict[str, Any], style: str = '') -> Text:
+def _format_profile_display(profile: Profile, style: str = '') -> Text:
     """Return a text formatted with profile data."""
     return Text(
-        '{name}, a {description}, from {country}'.format(**profile),
+        f'{profile.name}, a {profile.description}, from {profile.country}',
         style=style,
         justify='center',
     )
@@ -42,11 +41,11 @@ def _center_element(element: RenderableType, orient: str = 'both') -> Align:
 
 
 def _generate_profile_panel(
-    id: str, data: dict[str, Any], border_style: str = 'none'
+    id: str, profile: Profile, border_style: str = 'none'
 ) -> Panel:
     """Return a panel whose profile data is centered."""
     return Panel(
-        _center_element(_format_profile_display(data)),
+        _center_element(_format_profile_display(profile)),
         title=f'Profile {id}',
         border_style=border_style,
     )
@@ -78,14 +77,14 @@ class CLI:
         )
 
     def display_profile_comparison(
-        self, profiles: dict[str, dict[str, Any]]
+        self, profile_a: Profile, profile_b: Profile
     ) -> None:
         """Display profile comparison."""
         layout = Layout()
         layout.split_row(
-            _generate_profile_panel('A', profiles['A'], '#0072F9'),
+            _generate_profile_panel('A', profile_a, '#0072F9'),
             _center_element(Text(art.VS, style='#FFD700')),
-            _generate_profile_panel('B', profiles['B'], '#FF2000'),
+            _generate_profile_panel('B', profile_b, '#FF2000'),
         )
 
         self.console.print(layout, height=10, width=self.width)
