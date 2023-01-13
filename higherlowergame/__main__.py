@@ -1,6 +1,6 @@
-from higher_lower_game.cli import CLI
-from higher_lower_game.game import Game
-from higher_lower_game.game_data import PROFILE_DATA, Profile
+from higherlowergame.cli import CLI
+from higherlowergame.game import Game
+from higherlowergame.game_data import PROFILE_DATA, Profile
 
 
 def main() -> None:

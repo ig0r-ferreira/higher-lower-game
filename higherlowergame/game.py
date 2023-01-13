@@ -1,7 +1,7 @@
 import random
 
-from higher_lower_game.cli import CLI
-from higher_lower_game.game_data import Profile
+from higherlowergame.cli import CLI
+from higherlowergame.game_data import Profile
 
 
 def get_higher_profile(*profiles: Profile) -> Profile:

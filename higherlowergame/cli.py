@@ -5,8 +5,8 @@ from rich.panel import Panel
 from rich.prompt import Prompt
 from rich.text import Text
 
-from higher_lower_game import art
-from higher_lower_game.game_data import Profile
+from higherlowergame import art
+from higherlowergame.game_data import Profile
 
 
 def _format_profile_display(profile: Profile, style: str = '') -> Text:

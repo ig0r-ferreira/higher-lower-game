@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "A CLI game for you to guess which social network profile has the most followers."
 authors = ["Igor Ferreira <iferreira.n01@gmail.com>"]
 readme = "README.md"
-packages = [{include = "higher_lower_game"}]
+packages = [{include = "higherlowergame"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -16,7 +16,7 @@ isort = "^5.11.4"
 mypy = "^0.991"
 
 [tool.poetry.scripts]
-higher_lower_game = 'higher_lower_game.__main__:main'
+higherlowergame = 'higherlowergame.__main__:main'
 
 [build-system]
 requires = ["poetry-core"]
