@@ -125,3 +125,6 @@ class CLI:
             width=self.width,
             justify='center',
         )
+
+    def display_interrupt(self) -> None:
+        self.console.print('\n^C', end='')

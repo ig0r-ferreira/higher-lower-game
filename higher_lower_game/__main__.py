@@ -11,7 +11,10 @@ def main() -> None:
         return
 
     game = Game([Profile(**profile) for profile in PROFILE_DATA], cli)
-    game.play()
+    try:
+        game.play()
+    except KeyboardInterrupt:
+        cli.display_interrupt()
 
 
 if __name__ == '__main__':
